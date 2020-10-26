@@ -74,3 +74,32 @@ The input file have to be a csv file containing at least the following columns:
 * KIAA1045
 * THADA
 * ETS2
+
+## Model composition
+
+### C4 Detector
+
+![Alt text](images/C4_detector_tree_1.jpeg?raw=true "Predictor 1")
+![Alt text](images/C4_detector_tree_2.jpeg?raw=true "Predictor 2")
+![Alt text](images/C4_detector_tree_3.jpeg?raw=true "Predictor 2")
+
+### C1C2C3 Classifier
+
+#### C1
+![Alt text](images/C1C2C3_C1_classifier_tree_1.jpeg?raw=true "Predictor 1")
+![Alt text](images/C1C2C3_C1_classifier_tree_2.jpeg?raw=true "Predictor 2")
+![Alt text](images/C1C2C3_C1_classifier_tree_3.jpeg?raw=true "Predictor 3")
+![Alt text](images/C1C2C3_C1_classifier_tree_4.jpeg?raw=true "Predictor 4")
+
+#### C2
+![Alt text](images/C1C2C3_C2_classifier_tree_1.jpeg?raw=true "Predictor 1")
+![Alt text](images/C1C2C3_C2_classifier_tree_2.jpeg?raw=true "Predictor 2")
+![Alt text](images/C1C2C3_C2_classifier_tree_3.jpeg?raw=true "Predictor 3")
+![Alt text](images/C1C2C3_C2_classifier_tree_4.jpeg?raw=true "Predictor 4")
+
+#### C3
+![Alt text](images/C1C2C3_C3_classifier_tree_1.jpeg?raw=true "Predictor 1")
+![Alt text](images/C1C2C3_C3_classifier_tree_2.jpeg?raw=true "Predictor 2")
+![Alt text](images/C1C2C3_C3_classifier_tree_3.jpeg?raw=true "Predictor 3")
+![Alt text](images/C1C2C3_C3_classifier_tree_4.jpeg?raw=true "Predictor 4")
+
