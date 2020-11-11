@@ -13,12 +13,27 @@ def display_help():
     Display help for the programm
     """
 
-    print("""
-    SjTree take 2 arguments:
-        --ifile : the name of the input data file
-        --ofile : the name of the output file
+    ## importation
+    from colorama import init
+    init(strip=not sys.stdout.isatty())
+    from termcolor import cprint
+    from pyfiglet import figlet_format
 
-        exemple of use : python -i /my/input/file -o output.csv
+    ## display cool banner
+    text="SJtree - Help"
+    cprint(figlet_format(text, font="standard"), "blue")
+
+    ## help
+    print("""
+    SjTree take 2 mandatory arguments:
+        --ifile / -i : the name of the input data file
+        --ofile / -o : the name of the output file
+
+        and 1 optionnal argument:
+        --interp / -p : set to False to skip interpolation
+
+    Exemple of use :
+        python -i /my/input/file -o output.csv
 
         => the input file must follow a specific format to be interpreted,
            check README.md to have the list of mandatory variables.
@@ -32,7 +47,7 @@ def display_help():
 
 
 
-def run(input_data_file, output_filename):
+def run(input_data_file, output_filename, interpolate):
     """
     Main function, run the prediction process
         - input_data_file is a string, the name of the input file
@@ -60,11 +75,14 @@ def run(input_data_file, output_filename):
         preprocess_file = input_data_file.replace(".csv", "_selected_features.csv")
 
         ## perform interpolation
-        interpolation.run_interpolation(
-            preprocess_file,
-            interpolated_filename,
-            verbose_mode
-        )
+        if(interpolate):
+            interpolation.run_interpolation(
+                preprocess_file,
+                interpolated_filename,
+                verbose_mode
+            )
+        else:
+            interpolated_filename = preprocess_file
 
         ## make prediction
         predictor.run(interpolated_filename, verbose_mode)
@@ -107,8 +125,9 @@ if __name__=='__main__':
     input_data_file = ''
     output_filename = ''
     model_filename = ''
+    interpolate = True
     try:
-       opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+       opts, args = getopt.getopt(argv,"hi:o:p:",["ifile=","ofile=", "interp="])
     except getopt.GetoptError:
        display_help()
        sys.exit(2)
@@ -120,6 +139,8 @@ if __name__=='__main__':
           input_data_file = arg
        elif opt in ("-o", "--ofile"):
           output_filename = arg
+       elif opt in ("-p", "--interp"):
+           interpolate = arg
 
     ## display cool banner
     text="SJtree - Cluster Prediction"
@@ -134,6 +155,9 @@ if __name__=='__main__':
         print("[!] No output file detected")
         print("[!] Use -h or --help options to get more informations")
         sys.exit()
+    if(interpolate in ["False", "0", "No"]):
+        interpolate = False
+        print("tadam")
 
     ## perform run
-    run(input_data_file, output_filename)
+    run(input_data_file, output_filename, interpolate)
