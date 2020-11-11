@@ -65,7 +65,7 @@ def save_balise(ref_dataset, target_dataset):
 
 def interpolate(x):
     """
-    inertpolate value x from target_dataset to ref_dataset
+    Intertpolate value x from target to projection domain
     """
 
     ## importation
@@ -109,14 +109,18 @@ def interpolate(x):
 
 
 
-def run_interpolation(ref_dataset, target_dataset, output_filename, shutup_mode):
+def run_interpolation(target_dataset, output_filename, verbose_mode):
     """
-    main run
-    extract and save gene balise
-    extract selected genes
-    load target dataset
-    apply interpolate function on each entry of the target dataset
-    save dataset
+    Run interpolation on target dataset
+
+        - target_dataset is a string, the name of the dataset to interpolate
+        - output_filename is a string, the name of the interpolated dataset
+        - verbose_mode is a boolean, usually set to True
+
+    -> extract selected genes
+    -> load target dataset
+    -> apply interpolate function on each entry of the target dataset
+    -> save interpolated dataset
     """
 
     ## importation
@@ -127,11 +131,8 @@ def run_interpolation(ref_dataset, target_dataset, output_filename, shutup_mode)
     feature_file = "ressources/features.csv"
 
     ## display information if needed
-    if(not shutup_mode):
+    if(verbose_mode):
         print("[+] Run interpolation")
-
-    ## save gene balise
-    save_balise(ref_dataset, target_dataset)
 
     ## extract selected genes
     selected_genes = pd.read_csv(feature_file)
@@ -157,5 +158,5 @@ def run_interpolation(ref_dataset, target_dataset, output_filename, shutup_mode)
     df_selected.to_csv(output_filename)
 
     ## display information if needed
-    if(not shutup_mode):
+    if(verbose_mode):
         print("[+] Interpolation done")

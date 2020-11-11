@@ -1,10 +1,13 @@
 
 
-def check_essential_variables(data_file, shutup_mode):
+def check_essential_variables(data_file, verbose_mode):
     """
-    check if essential variables to correctly use the models are present in
+    Check if essential variables for the models are present in
     the data_file.
-    return a boolean
+        - data_file is a string, the name of the file to check
+        - verbose_mode is a boolean, usually set to True
+
+    => return a boolean (False if failed, True if succeed)
     """
 
     ## importation
@@ -15,7 +18,7 @@ def check_essential_variables(data_file, shutup_mode):
     feature_file = "ressources/essential_features.csv"
 
     ## display information if needed
-    if(not shutup_mode):
+    if(verbose_mode):
         print("[+] Look for essential variables ...")
 
     ## perform check
@@ -39,18 +42,17 @@ def check_essential_variables(data_file, shutup_mode):
         print("[ERROR] => can't load "+str(data_file))
         pass_check = False
 
-
     ## return a boolean
     return pass_check
 
 
 
-
-
-def select_variable(data_file, shutup_mode):
+def select_variable(data_file, verbose_mode):
     """
-    craft a subset of data_file using features in feature file
-    write a new csv file
+    Craft a subset of data_file using features mandatory for the models, save
+    this subset in a new csv file.
+        - data_file is a string, name of the input file
+        - verbose_mode is a boolean, usually set to True
     """
 
     ## importation
@@ -61,7 +63,7 @@ def select_variable(data_file, shutup_mode):
     feature_file = "ressources/features.csv"
 
     ## display information if needed
-    if(not shutup_mode):
+    if(verbose_mode):
         print("[+] Reformat "+str(data_file))
 
     ## craft output filename
@@ -86,5 +88,5 @@ def select_variable(data_file, shutup_mode):
     df.to_csv(output_filename, index=False)
 
     ## display information if needed
-    if(not shutup_mode):
+    if(verbose_mode):
         print("[+] File reformated")
