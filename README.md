@@ -31,6 +31,7 @@ as a python script.
 ### Arguments
 * --ifile / -i : the input file, dataset to process
 * --ofile / -o : name of the output file to generate
+* --interp / -p : set to False to skip interpolation (optionnal)
 * --help / -h : display help
 
 ### Example
