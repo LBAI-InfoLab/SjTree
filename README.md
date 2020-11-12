@@ -3,18 +3,27 @@ SjTree is a tool to analyse variance stabilizing transformation (VST) normalized
 
 ## **Script usage**
 
-### Installation
+### System requirements
+SjTree work on Linux distribution (tested on Ubuntu 20.04 LTS) and require python 3.7.+ with the packages listed in the requirements.txt file.
+We recommand a hardware with at least 2+ GB of RAM to un this programm with minimal performance and 12+ GB for optimal performance.
+
+### Installation guide
+The installation procedure (including the installation of required dependencies) should take less than 5 minutes with a 5+ Mb/ps.
+
 Clone the current directory on your computer
 > git clone https://github.com/LBAI-InfoLab/SjTree.git
+
+(optionnal) install SjTree as python module
+> python setup.py install
 
 Install the required dependencies
 > pip install -r requirements.txt
 
-### Utilisation
+### Usage
 Go to the programm directory, you should see a SjTree.py file that you can use
 as a python script.
 
-> python3 SjTree.py -h
+> python SjTree.py -h
 
 ### Arguments
 * --ifile / -i : the input file, dataset to process
@@ -22,12 +31,15 @@ as a python script.
 * --help / -h : display help
 
 ### Example
+To run SjTree on your own data use the following line: 
+> python SjTree.py --ifile my_data_file.csv --ofile my_result_file.csv
 
-> python3 SjTree.py --ifile my_data_file.csv --ofile my_result_file.csv
+## Demo
+This version contains a file with anonymized data from the original study and the associated expected results. You can test the software using the following command line :
 
+> python SjTree.py --ifile example/example_dataset.csv --ofile predictions.csv --interp False
 
-## **Package usage**
-Work In Progress
+You can then check that the predictions correspond to the expected results (available in the example folder). The script should take approximatively 40 seconds to performed on a computer with recommended configuration.
 
 
 ## **Data structure**
