@@ -82,7 +82,7 @@ def run(input_data_file, output_filename, interpolate):
                 verbose_mode
             )
         else:
-            interpolated_filename = preprocess_file
+            shutil.copy(preprocess_file, interpolated_filename)
 
         ## make prediction
         predictor.run(interpolated_filename, verbose_mode)
@@ -157,7 +157,6 @@ if __name__=='__main__':
         sys.exit()
     if(interpolate in ["False", "0", "No"]):
         interpolate = False
-        print("tadam")
 
     ## perform run
     run(input_data_file, output_filename, interpolate)

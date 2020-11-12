@@ -52,7 +52,7 @@ def craft_afd_plot(dataset):
     from joblib import dump
 
     ## parameters
-    cluster_name = ["C1", "C2", "C3", "C4"]
+    cluster_name = [1, 2, 3, 4]
     plt.style.use('dark_background')
 
     ## load dataset
