@@ -1,31 +1,28 @@
 # **SjTree**
-SjTree is a tool to analyse variance stabilizing transformation (VST) normalized expression value of RNAseq data. Its build around a composite model based on xgboosted trees. the composition of this model may change based on future work but the current implementation will still be available, along with all of these possible iterations. Data interpolation work is still ongoing and we are currently evaluating different strategies to enable deployment of this tool on different datasets.
+SjTree is a tool to analyze the normalized expression value of the variance stabilization transformation (VST) of RNAseq data. It is built around a composite model based on decision trees. The composition of this model may change based on future work, but the current implementation will still be available, along with all of these possible iterations. Data interpolation work is still ongoing and we are currently evaluating different strategies to enable deployment of this tool on different datasets.
 
 ## **Script usage**
 
 ### System requirements
-SjTree work on Linux distribution (tested on Ubuntu 20.04 LTS) and require python 3.7.+ with the packages listed in the requirements.txt file.
-We recommand a hardware with at least 2+ GB of RAM to un this programm with minimal performance and 12+ GB for optimal performance.
+SjTree runs on the Linux distribution (tested on Ubuntu 20.04 LTS) and requires python 3.7. + With the packages listed in the requirements.txt file. We recommend hardware with at least 2+ GB of RAM for this program for minimum performance and 12+ GB for optimum performance.
 
 ### Installation guide
-The installation procedure (including the installation of required dependencies) should take less than 5 minutes with a 5+ Mb/ps.
+The installation procedure (including installing the required dependencies) should take less than 5 minutes with an internet speed of 5 Mbps or more.
 
 Clone the current directory on your computer
 > git clone https://github.com/LBAI-InfoLab/SjTree.git
 
 Go the downloaded directory
-> cd SjTree
+> cd SjTree/
 
-(optionnal) install SjTree as python module
+(optional) install SjTree as a python module
 > python setup.py install
 
 Install the required dependencies
 > pip install -r requirements.txt
 
 ### Usage
-Go to the programm directory, you should see a SjTree.py file that you can use
-as a python script.
-
+Navigate to the program directory, you should see a SjTree.py file that you can use as a python script.
 > python SjTree.py -h
 
 ### Arguments
@@ -35,23 +32,23 @@ as a python script.
 * --help / -h : display help
 
 ### Ouput
-In addition to the predicions (stored in the ouput file defined by the user), SjTree create cluster distribution figure (.png file) and an AFD representation of the clusters (.gif) in the images subfolder.
+In addition to the predictions (stored in the user-defined output file), SjTree create a cluster distribution figure (.png file) and an AFD representation of clusters (.gif) in the images subfolder.
 
 ### Example
-To run SjTree on your own data use the following line: 
+To run SjTree on your own data, use the following line:
 > python SjTree.py --ifile my_data_file.csv --ofile my_result_file.csv
 
 ## Demo
-This version contains a file with anonymized data from the original study and the associated expected results. You can test the software using the following command line :
+The "example" folder contains a file with anonymized data from the original study and the associated expected results. You can test the software using the following command line:
 
 > python SjTree.py --ifile example/example_dataset.csv --ofile predictions.csv --interp False
 
-You can then check that the predictions correspond to the expected results (available in the example folder). The script should take approximatively 40 seconds to performed on a computer with recommended configuration.
+You can then check that the predictions correspond to the expected results (available in the example folder). The script should take approximately 40 seconds to run on a computer with the recommended configuration.
 
 
 ## **Data structure**
 ### Mandatory columns
-The input file have to be a csv file containing at least the following columns:
+The input file must be a csv file containing at least the following columns:
 * ID
 * NAPA
 * RSPH9
