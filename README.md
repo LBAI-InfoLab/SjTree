@@ -34,6 +34,9 @@ as a python script.
 * --interp / -p : set to False to skip interpolation (optionnal)
 * --help / -h : display help
 
+### Ouput
+In addition to the predicions (stored in the ouput file defined by the user), SjTree create cluster distribution figure (.png file) and an AFD representation of the clusters (.gif) in the images subfolder.
+
 ### Example
 To run SjTree on your own data use the following line: 
 > python SjTree.py --ifile my_data_file.csv --ofile my_result_file.csv
