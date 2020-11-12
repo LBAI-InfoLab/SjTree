@@ -13,6 +13,9 @@ The installation procedure (including the installation of required dependencies)
 Clone the current directory on your computer
 > git clone https://github.com/LBAI-InfoLab/SjTree.git
 
+Go the downloaded directory
+> cd SjTree
+
 (optionnal) install SjTree as python module
 > python setup.py install
 
