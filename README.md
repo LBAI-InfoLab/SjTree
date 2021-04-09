@@ -119,3 +119,9 @@ The input file must be a csv file containing at least the following columns:
 ![Alt text](images/C1C2C3_C3_classifier_tree_3.jpeg?raw=true "Predictor 3")
 ![Alt text](images/C1C2C3_C3_classifier_tree_4.jpeg?raw=true "Predictor 4")
 
+
+## Citing Sjtree
+Please cite this programm using the following reference:
+
+Foulquier N, Le Dantec C, Soret P, A new molecular classification to drive precision treatment strategies in primary Sjögren's syndrome, SjTree, DOI: 10.5281/zenodo.4643639, 2020
+
