@@ -123,5 +123,5 @@ The input file must be a csv file containing at least the following columns:
 ## Citing Sjtree
 Please cite this programm using the following reference:
 
-Foulquier N, Le Dantec C, Soret P, A new molecular classification to drive precision treatment strategies in primary Sjögren's syndrome, SjTree, DOI: 10.5281/zenodo.4643639, 2020
+> Foulquier N, Le Dantec C, Soret P, A new molecular classification to drive precision treatment strategies in primary Sjögren's syndrome, SjTree, DOI: 10.5281/zenodo.4643639, 2020
 
