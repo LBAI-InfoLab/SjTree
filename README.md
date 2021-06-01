@@ -1,5 +1,5 @@
 # **SjTree**
-SjTree is a tool to analyze the normalized expression value of the variance stabilization transformation (VST) of RNAseq data. It is built around a composite model based on decision trees. The composition of this model may change based on future work, but the current implementation will still be available, along with all of these possible iterations. Data interpolation work is still ongoing and we are currently evaluating different strategies to enable deployment of this tool on different datasets.
+SjTree is a tool to analyze variance stabilizing transformation (VST) normalized expression value of RNAseq. It is build around a composite model based on xgboosted trees. The composition of this model may change based on future work, but the current implementation will still be available, along with all of these possible iterations. Data interpolation work is still ongoing and we are currently evaluating different strategies to enable deployment of this tool on different datasets.
 
 ## **Script usage**
 
