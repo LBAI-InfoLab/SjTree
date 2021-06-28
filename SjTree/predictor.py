@@ -222,6 +222,9 @@ def run(data_file, verbose_mode):
     # -> Guess if observation is C4 or not
     C4_preds = C4_detector.predict(C4_X)
 
+    # -> compute assignation proba
+    C4_preds_proba = C4_detector.predict_proba(C4_X)
+
     ## save prediction results
 
     ## update dataset
@@ -238,8 +241,14 @@ def run(data_file, verbose_mode):
     # -> Multiclassification between C1,C2,C3
     multi_preds = multi_classifier.predict(X)
 
+    # -> compute assignation proba
+    multi_preds_proba = multi_classifier.predict_proba(X)
+
     ## assemble predictions of the model
     global_prediction = assemble_prediction(C4_preds, multi_preds)
+
+    ## assemble probablilities for each cluster assignation
+    global_proba = assemble_proba(C4_preds_proba, multi_preds_proba)
 
     ## check distribution
     plot_cluster_distribution(global_prediction)
@@ -253,6 +262,17 @@ def run(data_file, verbose_mode):
         manifest_file.write(line_to_write+"\n")
         cmpt +=1
     manifest_file.close()
+
+    ## create proba file
+    proba_file = open('dataset/probabilities.csv', 'w')
+    proba_file.write("ID,Non-C4,C4,C1,C2,C3,PREDICTION\n")
+    cmpt = 0
+    for prob in global_proba:
+        pred = global_prediction[cmpt]
+        line_to_write = str(patient_id[cmpt])+","+str(prob[0])+","+str(prob[1])+","+str(prob[2])+","+str(prob[3])+","+str(prob[4])+","+str(pred)
+        proba_file.write(line_to_write+"\n")
+        cmpt +=1
+    proba_file.close()
 
     ## display information if needed
     if(verbose_mode):
