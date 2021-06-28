@@ -35,7 +35,7 @@ def check_essential_variables(data_file, verbose_mode):
         for var in var_list:
             if(var not in list(df.keys())):
                 pass_check = False
-                if(not shutup_mode):
+                if(not verbose_mode):
                     print("[WARNING] => "+str(var)+" not found in dataset")
 
     except:

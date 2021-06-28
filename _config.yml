@@ -1,2 +1,1 @@
 theme: jekyll-theme-cayman
-title: SjTree is a tool to analyze variance stabilizing transformation (VST) normalized expression value of RNAseq. It is build around a composite model based on xgboosted trees.
