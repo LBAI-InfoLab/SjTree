@@ -65,6 +65,7 @@ def run(input_data_file, output_filename, interpolate):
     verbose_mode = True
     interpolated_filename = "dataset/interpolated_dataset.csv"
     prediction_filename = "dataset/prediction.csv"
+    proba_filename = "dataset/probabilities.csv"
     representation_dataset = "dataset/interpolated_dataset_labeled.csv"
 
     ## preprocess data
@@ -93,6 +94,10 @@ def run(input_data_file, output_filename, interpolate):
 
         ## save preds file to output_filename
         shutil.copy(prediction_filename, output_filename)
+
+        ## save proba file with output_filename
+        proba_output = output_filename.replace(".csv", "_proba.csv")
+        shutil.copy(proba_filename, proba_output)
 
         ## display information if needed
         if(verbose_mode):
