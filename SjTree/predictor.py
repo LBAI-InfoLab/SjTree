@@ -91,6 +91,35 @@ def assemble_prediction(C4_prediction, mult_prediction):
     return global_prediction
 
 
+def assemble_proba(C4_proba, mult_proba):
+    """
+    """
+
+    ## importation
+    import numpy as np
+
+    ## parameters
+    global_probs = []
+    cmpt = 0
+
+    ## fusion list
+    for C4_prob in C4_proba:
+
+        all_proba = []
+
+        ## spot C4
+        if(float(C4_prob[0]) <0.5):
+            all_proba = np.concatenate((C4_prob,[np.nan,np.nan,np.nan]))
+        else:
+            all_proba = np.concatenate((C4_prob, mult_proba[cmpt]))
+            cmpt+=1
+
+        ## save proba
+        global_probs.append(all_proba)
+
+    ## return global_proba
+    return global_probs
+
 
 def plot_model_tree():
     """
