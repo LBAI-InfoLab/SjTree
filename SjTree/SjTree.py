@@ -71,18 +71,28 @@ def run(input_data_file, output_filename, interpolate):
     ## preprocess data
     if(preprocessing.check_essential_variables(input_data_file, verbose_mode)):
 
-        ## select variables
-        preprocessing.select_variable(input_data_file, verbose_mode)
-        preprocess_file = input_data_file.replace(".csv", "_selected_features.csv")
-
         ## perform interpolation
         if(interpolate):
+
+            #-> hunt balise for interpolation
+            interpolation.hunt_balise(input_data_file)
+
+            #-> run interpolation
             interpolation.run_interpolation(
-                preprocess_file,
+                input_data_file,
                 interpolated_filename,
                 verbose_mode
             )
+
+            #-> select variabless
+            preprocessing.select_variable(interpolated_filename, verbose_mode)
+            preprocess_file = interpolated_filename.replace(".csv", "_selected_features.csv")
+
         else:
+
+            #-> select variables & prepare file for run
+            preprocessing.select_variable(input_data_file, verbose_mode)
+            preprocess_file = input_data_file.replace(".csv", "_selected_features.csv")
             shutil.copy(preprocess_file, interpolated_filename)
 
         ## make prediction
